@@ -1,38 +1,83 @@
-.App {
+h1{
   text-align: center;
+  font-size: 72px;
+  line-height: 108px;
+  font-family: "Poppins", sans-serif;
+font-weight: 700;
+font-style: normal;
+margin-bottom: 0%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3{
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  line-height: 29px;
+  margin-top: 0%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin-top: 10%;
+  background-color:#F3E8E8;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.box{
+  padding-left: 17px;
+  height: 50px;
+  width: 100%;
+  font-size: medium;
+  border-radius: 30px;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button{
+  display: block;
+  font-size: 16px;
+  background-color: white;
+  height: 40px;
+  margin: auto;
+  padding: 8px;
+  cursor: pointer;
+}
+span{
+  cursor: pointer;
+}
+
+li{
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: 37%; */
+  list-style-type: none;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #F3BAC2;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.fa{
+  padding: 15px 20px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.dashboard{
+  font-family: sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.dashboard-items{
+  background-color: rgb(242, 196, 10);
+  padding: 10px;
+  border-radius: 20px;
 }
