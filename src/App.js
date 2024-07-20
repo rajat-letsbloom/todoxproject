@@ -7,7 +7,7 @@ function App() {
   const [todo, setTodo] = useState('');
   const [allTodos, setAllTodos] = useState([])
 
-  
+
   const addTodos = () => {
     if (todo !== '') {
       fetch('https://jsonplaceholder.typicode.com/todos', {
@@ -20,28 +20,29 @@ function App() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      .then((response) => response.json())
-      .then((json) => {
-        setAllTodos(before => {
-          return [json, ...before]
+        .then((response) => response.json())
+        .then((json) => {
+          setAllTodos(before => {
+            return [json, ...before]
+          })
+          setTodo('')
         })
-        setTodo('')
-      })
     } else {
       alert('Input Cannot be Empty :)')
     }
   }
 
-  const deletTodo = () =>{
-
-  }
 
   console.log(allTodos);
 
-  useEffect(() => {
+  function getTodos(){
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(res => res.json())
       .then(json => setAllTodos(json))
+  }
+
+  useEffect(() => {
+    getTodos();
   }, [])
 
   const checkTask = (ind, val) => {
@@ -55,8 +56,15 @@ function App() {
     })
   }
 
-  return (
+  const deleteTodo = (id) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
+      method: 'DELETE'
+    })
+      .then(getTodos())
 
+  }
+
+  return (
     <div className="App">
       <div>
         <h1>TO-DO LIST</h1>
@@ -85,7 +93,7 @@ function App() {
             return <li key={index}>
               <input type='checkbox' checked={item?.completed} onChange={(e) => checkTask(index, e.target.value)} />
               {item.title}
-              <span><i className='fa fa-trash-o' onClick={e => deletTodo(e.target)}></i></span>
+              <span><i className='fa fa-trash-o' onClick={() => deleteTodo(item.id)}></i></span>
             </li>
           })}
         </ul>
